@@ -3981,6 +3981,12 @@ end
 --end
 
 task.delay(4, function()
-	CielbermLibrary.LoadConfiguration()
-	if Main:FindFirstChild('Notice') and Main.Notice.Visible then
-		TweenService:Create(Main.Notice, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.Easing
+    CielbermLibrary.LoadConfiguration()
+    if Main:FindFirstChild('Notice') and Main.Notice.Visible then
+        TweenService:Create(Main.Notice, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {BackgroundTransparency = 1, Position = UDim2.new(0.5, 0, 0, -100)}):Play()
+        task.wait(0.5)
+        Main.Notice.Visible = false
+    end
+end)
+
+return CielbermLibrary
